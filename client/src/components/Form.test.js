@@ -1,9 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import RegistrationForm from "./Form"
-import Button from "./Form"
-import { render } from "@testing-library/react"
+import { render, fireEvent, getByTestId } from "@testing-library/react"
+import { getByText } from "@testing-library/dom"
+import "@testing-library/jest-dom/extend-expect"
 import "@testing-library/react/cleanup-after-each"
+import RegistrationForm from "./Form"
 
 describe("<RegistrationForm />", () => {
   it("renders without crashing", () => {
@@ -16,19 +17,8 @@ describe("<RegistrationForm />", () => {
   })
 
   it("renders submit button", () => {
-    const button = render(<RegistrationForm />)
-
-    const Button = getByTestId("Button")
+    const { container } = render(<RegistrationForm />)
+    const Button = getByTestId(container, "error")
     fireEvent.click(Button)
-  })
-})
-
-describe("Test Button component", () => {
-  it("Test click event", () => {
-    const mockCallBack = jest.fn()
-
-    const Button = shallow(<Button onClick={mockCallBack}>Ok!</Button>)
-    button.find("button").simulate("click")
-    expect(mockCallBack.mock.calls.length).toEqual(1)
   })
 })
