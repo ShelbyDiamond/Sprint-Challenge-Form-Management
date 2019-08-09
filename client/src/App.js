@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Heading>REGISTRATION STARTS HERE!</Heading>
+        <h2>REGISTRATION STARTS HERE!</h2>
         <FormikRegistrationForm />
       </div>
     )
