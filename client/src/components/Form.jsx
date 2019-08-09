@@ -16,6 +16,13 @@ const Password = styled.label`
   font-size: 1rem;
   margin: 10px;
 `
+
+const Button = styled.button`
+  border-radius: 5px;
+  color: teal;
+  padding: 5px;
+  margin: 3px;
+`
 const RegistrationForm = ({
   touched,
   errors,
@@ -55,7 +62,7 @@ const RegistrationForm = ({
             <p className="error">{errors.password}</p>
           )}
         </Password>
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
 
         {register.map(user => (
           <p key={user.id}>{user.name} </p>
